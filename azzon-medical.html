@@ -95,6 +95,24 @@
     </button>
 </section>
 
+    <div style="background: #1e293b; padding: 10px; border-radius: 8px 8px 0 0; margin-top: 20px;">
+    <p id="server-time" style="color: #10b981; font-family: monospace; font-size: 11px; margin: 0; letter-spacing: 1px;">
+        ● SYSTEM STATUS: ONLINE | LOGS: ACTIVE | <span id="clock">00:00:00</span>
+    </p>
+</div>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.getHours().toString().padStart(2, '0') + ":" + 
+                           now.getMinutes().toString().padStart(2, '0') + ":" + 
+                           now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('clock').innerText = timeString;
+    }
+    setInterval(updateTime, 1000);
+    updateTime(); // Run immediately
+</script>
+
 <script>
     function runTest() {
         let patient = prompt("Patient Name for Test Result:");
