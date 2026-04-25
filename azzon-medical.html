@@ -94,36 +94,48 @@
         RUN DATABASE SIMULATION
     </button>
 </section>
-
-    <div style="background: #1e293b; padding: 10px; border-radius: 8px 8px 0 0; margin-top: 20px;">
-    <p id="server-time" style="color: #10b981; font-family: monospace; font-size: 11px; margin: 0; letter-spacing: 1px;">
-        ● SYSTEM STATUS: ONLINE | LOGS: ACTIVE | <span id="clock">00:00:00</span>
+<div style="background: #1e293b; padding: 10px; border-radius: 8px 8px 0 0; margin-top: 20px; border-left: 4px solid #10b981;">
+    <p style="color: #10b981; font-family: monospace; font-size: 11px; margin: 0; letter-spacing: 1px;">
+        ● SYSTEM STATUS: ONLINE | <span id="clock-display">00:00:00</span>
     </p>
 </div>
 
-<script>
-    function updateTime() {
-        const now = new Date();
-        const timeString = now.getHours().toString().padStart(2, '0') + ":" + 
-                           now.getMinutes().toString().padStart(2, '0') + ":" + 
-                           now.getSeconds().toString().padStart(2, '0');
-        document.getElementById('clock').innerText = timeString;
-    }
-    setInterval(updateTime, 1000);
-    updateTime(); // Run immediately
-</script>
+<section style="padding: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px;">
+    <h4 style="color: #1e293b; font-weight: bold; margin: 0;">System Logic Preview</h4>
+    <p style="color: #64748b; font-size: 13px; margin: 5px 0 15px 0;">Test the database response for new entries:</p>
+    <button onclick="runTest()" style="background: #2563eb; color: white; width: 100%; padding: 14px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer;">
+        RUN DATABASE SIMULATION
+    </button>
+</section>
 
 <script>
+    // The Clock Logic
+    function startClock() {
+        setInterval(() => {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            const display = document.getElementById('clock-display');
+            if (display) {
+                display.innerText = h + ":" + m + ":" + s;
+            }
+        }, 1000);
+    }
+    startClock();
+
+    // The Simulation Logic
     function runTest() {
-        let patient = prompt("Patient Name for Test Result:");
+        let patient = prompt("Enter Patient Name for Simulation:");
         if(patient) {
             alert("Connecting to Vantage Secure Cloud...");
             setTimeout(() => {
                 alert("SUCCESS: Result for " + patient + " has been logged. Database response: 200 OK");
-            }, 1000);
+            }, 800);
         }
     }
 </script>
 
 </body>
 </html>
+
