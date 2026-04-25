@@ -1,0 +1,11 @@
+<div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-600">
+    <h3 class="text-xl font-bold mb-2">Live Web Application</h3>
+    <p class="text-gray-600 mb-4">A custom-built interactive application hosted on Replit, showcasing real-time functionality.</p>
+    <div class="flex gap-4">
+        <a href="https://8b72cbed-45e0-4d75-b039-6cda051ac9f5-00-3fv7r2rnjuqh3.picard.replit.dev/" 
+           class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md active:scale-95 transition" 
+           target="_blank">
+           View Live App
+        </a>
+    </div>
+</div>
