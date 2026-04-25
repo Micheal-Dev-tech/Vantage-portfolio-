@@ -87,5 +87,25 @@
         <p class="text-[10px] text-slate-400 mt-10 uppercase tracking-widest">Designed by Vantage Digital</p>
     </footer>
 
+    <section style="padding: 20px; background: #f8fafc; border-top: 2px solid #e2e8f0;">
+    <h4 style="color: #1e293b; font-weight: bold;">System Logic Preview</h4>
+    <p style="color: #64748b; font-size: 14px;">Test how the database handles a new result entry:</p>
+    <button onclick="runTest()" style="background: #2563eb; color: white; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 10px;">
+        RUN DATABASE SIMULATION
+    </button>
+</section>
+
+<script>
+    function runTest() {
+        let patient = prompt("Patient Name for Test Result:");
+        if(patient) {
+            alert("Connecting to Vantage Secure Cloud...");
+            setTimeout(() => {
+                alert("SUCCESS: Result for " + patient + " has been logged. Database response: 200 OK");
+            }, 1000);
+        }
+    }
+</script>
+
 </body>
 </html>
